@@ -2,10 +2,11 @@ from django.db import models
 
 
 class Product(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=155)
     description = models.TextField(blank=True, null=True)
     price = models.DecimalField(decimal_places=2, max_digits=1000)
-    summary = models.TextField()
+    summary = models.TextField(blank=False, null=False)
+    featured = models.BooleanField()
 
     def __str__(self):
         return self.title
